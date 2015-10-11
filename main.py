@@ -1,26 +1,47 @@
-from call import *
+from caller import *
+import random
 
 def getInterArrivalTime(customerList):
     pass
 def getAbleOrBaker(ableAvailTime,bakerAvailTime,priority):
-    pass
-def getServiceTime(ableOrBaker,adleList,bakerList):
+    if(ableAvailTime == bakerAvailTime):
+        if(priority == 2):
+            select = random.choice([0,1])
+            return select
+        else:
+            return priority 
+    else:
+        if(ableAvailTime < bakerAvailTime):
+            return 0
+        else:
+            return 1    
+def getServiceTime(ableOrBaker,ableList,bakerList):
     pass
 
-def customerGenerator(customerList,adleList,bakerList,priority,customerOrTime,count):
+def customerGenerator(customerList,ableList,bakerList,priority,customerOrTime,count):
     
     customreList = list()
     
     if(customerOrTime):
         for i in range(count):
             if(len(customerList) == 0):    # The fist caller
-                if(priority == 0):
-                    pass
-                if(priority == 1):
-                    pass
                 if(priority == 2):
-                    pass
+                    priority = select = random.choice([0,1])
+                if(priority == 0):
+                    servTime = random.choice(ableList)
+                    customerList.append(Caller(0,0,0,0,0,servTime,0,servTime,0,0,0))
+                if(priority == 1):
+                    servTime = random.choice(bakerList)
+                    customerList.append(Caller(0,0,0,0,1,servTime,0,0,servTime,0,0))                
             else:
+                if(priority == 2):
+                    priority = select = random.choice([0,1])
+                if(priority == 0):
+                    ableBaker = getAbleOrBaker(customerList[len(customerList)-1].whenAbleAvailable, customerList[len(customerList)-1].whenBakerAvailable, priority)
+                    customerList.append(Caller(0,0,0,0,0,servTime,0,servTime,0,0,0))
+                if(priority == 1):
+                    servTime = random.choice(bakerList)
+                    customerList.append(Caller(0,0,0,0,1,servTime,0,0,servTime,0,0))
                     
 
 
