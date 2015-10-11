@@ -41,7 +41,10 @@ def customerGenerator(customerTimeList,ableList,bakerList,priority,customerOrTim
                 timeInSystem = customerList[len(customerList)-1].arrivalTime
                 if(priority == 2):
                     priority  = random.choice([0,1])
-                ableBaker = getAbleOrBaker(customerList[len(customerList)-1].whenAbleAvailable, customerList[len(customerList)-1].whenBakerAvailable, priority)
+                print "able end time is "+str(customerList[len(customerList)-1].ableServiceCompletedTime)
+                print "baker end time is "+str(customerList[len(customerList)-1].bakerServiceCompletedTime)
+                ableBaker = getAbleOrBaker(customerList[len(customerList)-1].ableServiceCompletedTime, customerList[len(customerList)-1].bakerServiceCompletedTime, priority)
+                print "ablebaker is "+str(ableBaker)
                 servTime = getServiceTime(ableBaker, ableList, bakerList)
                 
                 if(ableBaker == 0):                    
@@ -49,7 +52,7 @@ def customerGenerator(customerTimeList,ableList,bakerList,priority,customerOrTim
                     whenAbleAvailable = customerList[len(customerList)-1].ableServiceCompletedTime
                     whenBakerAvailableTime = customerList[len(customerList)-1].bakerServiceCompletedTime
                     
-                    if(arrivalTime < whenAbleAvailable):
+                    if(arrivalTime > whenAbleAvailable):
                         whenServiceBegins = arrivalTime
                     else:
                         whenServiceBegins = whenAbleAvailable
@@ -64,7 +67,7 @@ def customerGenerator(customerTimeList,ableList,bakerList,priority,customerOrTim
                     whenAbleAvailable = customerList[len(customerList)-1].ableServiceCompletedTime
                     whenBakerAvailableTime = customerList[len(customerList)-1].bakerServiceCompletedTime
                     
-                    if(arrivalTime < whenBakerAvailableTime):
+                    if(arrivalTime > whenBakerAvailableTime):
                         whenServiceBegins = arrivalTime
                     else:
                         whenServiceBegins = whenBakerAvailableTime
