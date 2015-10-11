@@ -1,6 +1,27 @@
+from call import *
 
+def getInterArrivalTime(customerList):
+    pass
+def getAbleOrBaker(ableAvailTime,bakerAvailTime,priority):
+    pass
+def getServiceTime(ableOrBaker,adleList,bakerList):
+    pass
 
-
+def customerGenerator(customerList,adleList,bakerList,priority,customerOrTime,count):
+    
+    customreList = list()
+    
+    if(customerOrTime):
+        for i in range(count):
+            if(len(customerList) == 0):    # The fist caller
+                if(priority == 0):
+                    pass
+                if(priority == 1):
+                    pass
+                if(priority == 2):
+                    pass
+            else:
+                    
 
 
 
