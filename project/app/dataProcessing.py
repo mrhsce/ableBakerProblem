@@ -41,10 +41,7 @@ def customerGenerator(customerTimeList,ableList,bakerList,priority,customerOrTim
                 timeInSystem = customerList[len(customerList)-1].arrivalTime
                 if(priority == 2):
                     priority  = random.choice([0,1])
-                print "able end time is "+str(customerList[len(customerList)-1].ableServiceCompletedTime)
-                print "baker end time is "+str(customerList[len(customerList)-1].bakerServiceCompletedTime)
                 ableBaker = getAbleOrBaker(customerList[len(customerList)-1].ableServiceCompletedTime, customerList[len(customerList)-1].bakerServiceCompletedTime, priority)
-                print "ablebaker is "+str(ableBaker)
                 servTime = getServiceTime(ableBaker, ableList, bakerList)
                 
                 if(ableBaker == 0):                    
