@@ -21,7 +21,7 @@ def getServiceTime(ableOrBaker,ableList,bakerList):
     else:
         return random.choice(bakerList)
 
-def customerGenerator(customerList,ableList,bakerList,priority,customerOrTime,count):
+def customerGenerator(customerTimeList,ableList,bakerList,priority,customerOrTime,count):
     
     customerList = list()
     
@@ -37,7 +37,7 @@ def customerGenerator(customerList,ableList,bakerList,priority,customerOrTime,co
                     servTime = random.choice(bakerList)
                     customerList.append(Caller(0,0,0,0,1,servTime,0,0,servTime,0,0))                
             else:
-                interArrVlTime = getInterArrivalTime(customerList)
+                interArrVlTime = getInterArrivalTime(customerTimeList)
                 timeInSystem = customerList[len(customerList)-1].arrivalTime
                 if(priority == 2):
                     priority  = random.choice([0,1])
