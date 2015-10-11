@@ -6,7 +6,7 @@
 
 def main():
     
-    #Input data
+    #Input data ->Mahdi
     "در این قسمت باید از طریق یک اسپینر و یا هر ویو دیگری که صلاح میدانی این دیتا ها از کاربر گرفته شود "
     customerInterArrivalTime = list()  
     "توزیع آماری زمان رسیدن مشتری جدید"
@@ -26,10 +26,10 @@ def main():
     
     
     
-    #Data processing 
+    # Data processing  -> MrHs
     
     
-    # printing output using django
+    # printing output using django -> Mahdi
     
     
     return 0
