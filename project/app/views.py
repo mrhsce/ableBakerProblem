@@ -56,11 +56,30 @@ def startSimulation(request):
     
     array2dOFRow = test(lili)
     
-    listx = ['dd' , 'ss' ,'gg' , 'hh']
-    listy = [10 , 20 , 30 ,410]
-    listx2 = ['dd' , 'ss' ,'gg' , 'hh']
-    listy2 = [10 , 20 , 30 ,410]
+    delayFrequencyDictionary = {}
     
+    for i in lili:
+        if(delayFrequencyDictionary.has_key(i.callerDelay)):
+            delayFrequencyDictionary[i.callerDelay] += 1
+        else:
+            delayFrequencyDictionary[i.callerDelay] = 1    
+    
+    keyList = delayFrequencyDictionary.keys()
+    
+    keyList.sort()    
+    
+    listx = []
+    listy = []
+    listx2 = []
+    listy2 = []
+    
+    for i in keyList:
+        listx.append(str(i))
+        listx2.append(str(i))
+        listy.append(str(delayFrequencyDictionary[i]))
+        listy2.append(str(delayFrequencyDictionary[i]*100/len(lili)))
+    
+     
     return render(request, 'sim.html', {'allData': array2dOFRow ,
                                         'listX' : listx ,
                                          'listY': listy ,
