@@ -56,8 +56,17 @@ def startSimulation(request):
     
     array2dOFRow = test(lili)
     
+    listx = ['dd' , 'ss' ,'gg' , 'hh']
+    listy = [10 , 20 , 30 ,410]
+    listx2 = ['dd' , 'ss' ,'gg' , 'hh']
+    listy2 = [10 , 20 , 30 ,410]
     
-    return render(request, 'sim.html', {'allData': array2dOFRow})
+    return render(request, 'sim.html', {'allData': array2dOFRow ,
+                                        'listX' : listx ,
+                                         'listY': listy ,
+                                        'listX2' : listx2 ,
+                                         'listY2': listy2 
+                                        })
 
 
 def home(request):
