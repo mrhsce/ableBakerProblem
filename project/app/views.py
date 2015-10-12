@@ -54,9 +54,10 @@ def startSimulation(request):
     
     # printing output using django -> Mahdi
     
-    d = test(lili)
+    array2dOFRow = test(lili)
     
-    return render(request, 'sim.html', {'hhh': d})
+    
+    return render(request, 'sim.html', {'allData': array2dOFRow})
 
 
 def home(request):
